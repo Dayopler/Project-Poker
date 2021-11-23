@@ -4,16 +4,15 @@ import sys
 
 
 class Seed:
-    storage_file: str = 'seed.json'
+    storage_file: str = 'seed/seed.json'
 
     def __init__(self, seed_name: str = None):
-        self.__seed_name: str = seed_name
-        self.seed: int = self.__generate() if seed_name is None else self.__load()
+        self.seed: int = self.__generate() if seed_name is None else self.__load(seed_name)
 
     def __repr__(self):
         return 'represent the seed used for current game'
 
-    def __load(self) -> int:
+    def __load(self, seed_name: str) -> int:
         """
         load the given seed from the json file
         :return bool:
@@ -24,7 +23,7 @@ class Seed:
                 f.close()
 
             for name in file_content:
-                if name == self.__seed_name:
+                if name == seed_name:
                     seed = file_content[name]
                     random.seed(seed)
                     random.random()
@@ -67,7 +66,3 @@ class Seed:
             return True
         except FileNotFoundError:
             print('File not found')
-
-
-if __name__ == '__main__':
-    s = Seed(seed_name='seed')

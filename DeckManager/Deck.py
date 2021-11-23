@@ -1,4 +1,5 @@
 import random
+from DeckManager.Card import Card
 
 
 class Deck:
@@ -21,23 +22,26 @@ class Deck:
         self.size: int = deck_size
 
         # deck content
-        self.cards: list[tuple] = self.__build()
-
-        # the deck seed
-        self.__seed: int = None if seed is None else seed
+        self.cards: list[Card] = self.__build()
 
     def __repr__(self):
-        return "represent deck contains card"
+        return f"represent deck contains {self.size} card"
+
+    def __iter__(self):
+        return self.cards
+
+    def __next__(self):
+        print(self.cards)
+        return self.cards.pop(0)
 
     def shuffle(self):
         """
         shuffle deck
         :return:
         """
-        self.__generate_seed()
         random.shuffle(self.cards)
 
-    def __build(self) -> list[tuple]:
+    def __build(self) -> list[Card]:
         """
         build new deck, it will return list of tuple
         tuple contain two value:
@@ -45,27 +49,17 @@ class Deck:
         - second index contain index of card symbol in cards_symbol
         :return list:
         """
-        cards_list: list[tuple] = []
+        cards_list: list[Card] = []
 
         for i in range(0, int(self.size / self.minimum_size)):
             for symbol in range(0, len(self.cards_symbol)):
                 for value in range(0, len(self.cards_value)):
-                    cards_list.append((value, symbol))
+                    cards_list.append(Card(value=value, symbol=symbol))
 
         return cards_list
-
-    def __generate_seed(self):
-        """
-        get the seed for the deck
-        :return:
-        """
-        if self.__seed is None:
-            self.__seed = random.randint(1, 10000)
-
-        random.seed(self.__seed)
-        random.random()
 
 
 if __name__ == '__main__':
     d = Deck()
-    d.shuffle()
+    print(d.__next__())
+    print(d.__next__())
