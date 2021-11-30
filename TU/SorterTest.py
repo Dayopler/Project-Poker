@@ -99,7 +99,7 @@ class MyTestCase(unittest.TestCase):
     def test_is_quinte(self):
         hand = [
             Card(symbol=1, value=1, color=0),
-            Card(symbol=1, value=4, color=0),
+            Card(symbol=1, value=4, color=1),
             Card(symbol=1, value=3, color=0),
             Card(symbol=1, value=5, color=0),
             Card(symbol=1, value=2, color=0)
@@ -108,17 +108,28 @@ class MyTestCase(unittest.TestCase):
 
         self.assertTrue(sorter._Sorter__isquinte())
 
-    def test_is_not_quinte(self):
+    def test_is_not_quinte_continuation(self):
         hand = [
-            Card(symbol=1, value=11, color=0),
-            Card(symbol=1, value=12, color=0),
-            Card(symbol=1, value=13, color=0),
-            Card(symbol=1, value=14, color=0),
-            Card(symbol=1, value=15, color=0)
+            Card(symbol=1, value=1, color=0),
+            Card(symbol=1, value=2, color=0),
+            Card(symbol=1, value=3, color=0),
+            Card(symbol=1, value=4, color=0),
+            Card(symbol=1, value=6, color=0)
         ]
         sorter = Sorter(hand=hand)
         self.assertFalse(sorter._Sorter__isquinte())
 
+    def test_is_not_quinte_color(self):
+        hand = [
+            Card(symbol=1, value=1, color=0),
+            Card(symbol=1, value=4, color=0),
+            Card(symbol=1, value=3, color=0),
+            Card(symbol=1, value=5, color=0),
+            Card(symbol=1, value=2, color=0)
+        ]
+        sorter = Sorter(hand=hand)
+
+        self.assertFalse(sorter._Sorter__isquinte())
     """
     =========================================
     is square test

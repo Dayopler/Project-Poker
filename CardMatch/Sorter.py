@@ -13,6 +13,7 @@ class Sorter:
         """
         self.__cards_value: list[int] = [card.value for card in hand]
         self.__cards_symbol: list[int] = [card.symbol for card in hand]
+        self.__cards_color: list[int] = [card.color for card in hand]
 
         self.__kicker_card = self.__cards_value
         self.__kicker_card.sort()
@@ -71,16 +72,24 @@ class Sorter:
 
     def __isquinte(self) -> bool:
         """
-        TODO:
-            - check if color not the same
         :return bool:
         """
         self.__cards_value.sort()
+
+        # check if its continuation
         for i in range(0, len(self.__cards_value) - 1):
             if self.__cards_value[i] + 1 != self.__cards_value[i + 1]:
                 return False
 
-        return 5 in self.__cards_value or 10 in self.__cards_value
+        # check not the same color in the hand
+        if self.__cards_color.count(0) == 5 or self.__cards_color.count(1) == 5:
+            return False
+
+        # check if contain at least 5 or 10 in the hand
+        if 5 in self.__cards_value or 10 in self.__cards_value:
+            return True
+
+        return False
 
     def __iscolor(self) -> bool:
         """
