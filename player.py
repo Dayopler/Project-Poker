@@ -1,8 +1,10 @@
 class Player:
 
-    def __init__(self, name):
+    def __init__(self, name=None):
         self.__name = name
         self.__cards = []
+        self.chips = 0
+
 
     def __str__(self):
         try:
