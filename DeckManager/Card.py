@@ -53,9 +53,17 @@ class Card:
         """
         return self.__string_symbol
 
+    def get_string_color(self):
+        """
+        get card string symbol
+        :return:
+        """
+        return self.__string_color
+
     value = property(fget=get_value)
     symbol = property(fget=get_symbol)
     color = property(fget=get_color)
 
     value_string = property(fget=get_string_value)
     symbol_string = property(fget=get_string_symbol)
+    color_string = property(fget=get_string_symbol)
