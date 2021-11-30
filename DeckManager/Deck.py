@@ -3,13 +3,9 @@ from DeckManager.Card import Card
 
 
 class Deck:
-    cards_symbol: tuple = ('heart', 'diamonds', 'clubs', 'spades')
-    cards_value: tuple = (
-        'two', 'three', 'four', 'five', 'six', 'seven', 'height', 'nine', 'ten', 'jack', 'queen', 'king', 'as')
+    minimum_size = len(Card.available_value) * len(Card.available_symbol)
 
-    minimum_size = len(cards_value) * len(cards_symbol)
-
-    def __init__(self, deck_size: int = 52, seed: int = None):
+    def __init__(self, deck_size: int = 52):
         """
         deck minimum_size represent the total of card the game will get inside
         :param deck_size:
@@ -22,24 +18,24 @@ class Deck:
         self.size: int = deck_size
 
         # deck content
-        self.cards: list[Card] = self.__build()
+        self.__cards: list[Card] = self.__build()
 
     def __repr__(self):
         return f"represent deck contains {self.size} card"
 
     def __iter__(self):
-        return self.cards
+        return self.__cards
 
     def __next__(self):
-        print(self.cards)
-        return self.cards.pop(0)
+        self.size -= 1
+        return self.__cards.pop(0)
 
     def shuffle(self):
         """
         shuffle deck
         :return:
         """
-        random.shuffle(self.cards)
+        random.shuffle(self.__cards)
 
     def __build(self) -> list[Card]:
         """
@@ -47,14 +43,20 @@ class Deck:
         tuple contain two value:
         - first index contain index of card value in cards_value
         - second index contain index of card symbol in cards_symbol
+        - third index contain index of card color
         :return list:
         """
         cards_list: list[Card] = []
 
-        for i in range(0, int(self.size / self.minimum_size)):
-            for symbol in range(0, len(self.cards_symbol)):
-                for value in range(0, len(self.cards_value)):
-                    cards_list.append(Card(value=value, symbol=symbol))
+        total_symbol = len(Card.available_symbol)
+        total_value = len(Card.available_value)
+        total_card_game_in_deck = int(self.size / self.minimum_size)
+
+        for i in range(0, total_card_game_in_deck):
+            for symbol in range(0, total_symbol):
+                for value in range(0, total_value):
+                    color = 0 if symbol % 2 == 0 else 1
+                    cards_list.append(Card(value=value, symbol=symbol, color=color))
 
         return cards_list
 
