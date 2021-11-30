@@ -93,11 +93,11 @@ class Sorter:
 
     def __iscolor(self) -> bool:
         """
-        TODO:
-            - check if all card got the same color
         :return bool:
         """
-        pass
+        repeat = {i: self.__cards_symbol.count(i) for i in self.__cards_symbol}
+        values = list(repeat.values())
+        return max(values) == 5
 
     def __isfull(self) -> bool:
         """

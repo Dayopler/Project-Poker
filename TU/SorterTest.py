@@ -252,6 +252,33 @@ class MyTestCase(unittest.TestCase):
         sorter = Sorter(hand=hand)
         self.assertFalse(sorter._Sorter__isquinteflushroyal())
 
+    """
+    =========================================
+    is full test
+    =========================================
+    """
+    def test_is_color(self):
+        hand = [
+            Card(symbol=1, value=3, color=0),
+            Card(symbol=1, value=3, color=0),
+            Card(symbol=1, value=3, color=0),
+            Card(symbol=1, value=1, color=0),
+            Card(symbol=1, value=1, color=0)
+        ]
+        sorter = Sorter(hand=hand)
+        self.assertTrue(sorter._Sorter__iscolor())
+
+    def test_is_not_color(self):
+        hand = [
+            Card(symbol=1, value=2, color=0),
+            Card(symbol=2, value=2, color=0),
+            Card(symbol=1, value=2, color=0),
+            Card(symbol=1, value=5, color=0),
+            Card(symbol=1, value=1, color=0)
+        ]
+        sorter = Sorter(hand=hand)
+        self.assertFalse(sorter._Sorter__iscolor())
+
 
 if __name__ == '__main__':
     unittest.main()
