@@ -138,4 +138,14 @@ class Sorter:
         1 for the last condition represent the diamonds in deck class
         :return bool:
         """
-        return self.__kicker_card == [8, 9, 10, 11, 12] and self.__cards_symbol.count(max(self.__cards_symbol)) == 5 and max(self.__cards_symbol) == 1
+        # check the continuation
+        if self.__kicker_card != [8, 9, 10, 11, 12]:
+            return False
+
+        if self.__cards_symbol.count(self.__cards_symbol[0]) != 5:
+            return False
+
+        if self.__cards_symbol[0] == 2:
+            return True
+
+        return False
