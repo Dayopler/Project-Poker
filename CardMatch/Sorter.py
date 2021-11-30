@@ -123,7 +123,15 @@ class Sorter:
             if self.__kicker_card[i] + 1 != self.__kicker_card[i + 1]:
                 return False
 
-        return self.__cards_symbol.count(max(self.__cards_symbol)) == 5
+        # check if index 0 is a clubs
+        if self.__cards_symbol[0] != 1:
+            return False
+
+        # check if all symbol are clubs:
+        if self.__cards_symbol.count(max(self.__cards_symbol)) == 5:
+            return True
+
+        return False
 
     def __isquinteflushroyal(self) -> bool:
         """

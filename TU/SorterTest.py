@@ -202,7 +202,7 @@ class MyTestCase(unittest.TestCase):
 
         self.assertTrue(sorter._Sorter__isquinteflush())
 
-    def test_is_not_quinte_flush(self):
+    def test_is_not_quinte_flush_symbol(self):
         hand = [
             Card(symbol=1, value=2, color=0),
             Card(symbol=1, value=3, color=0),
@@ -213,6 +213,16 @@ class MyTestCase(unittest.TestCase):
         sorter = Sorter(hand=hand)
         self.assertFalse(sorter._Sorter__isquinteflush())
 
+    def test_is_not_quinte_flush_value(self):
+        hand = [
+            Card(symbol=1, value=2, color=0),
+            Card(symbol=1, value=3, color=0),
+            Card(symbol=1, value=4, color=0),
+            Card(symbol=1, value=5, color=0),
+            Card(symbol=1, value=7, color=0)
+        ]
+        sorter = Sorter(hand=hand)
+        self.assertFalse(sorter._Sorter__isquinteflush())
     """
     =========================================
     is quinte flush royal test
