@@ -1,13 +1,13 @@
 import unittest
 
 from CardMatch.Sorter import Sorter
-from DeckManager.Card import Card
+from Cards.Card import Card
 
 
 class MyTestCase(unittest.TestCase):
     """
     =========================================
-    is pair test
+    is pair test.txt
     =========================================
     """
     def test_is_pair(self):
@@ -35,7 +35,7 @@ class MyTestCase(unittest.TestCase):
 
     """
     =========================================
-    is double pair test
+    is double pair test.txt
     =========================================
     """
     def test_is_double_pair(self):
@@ -64,7 +64,7 @@ class MyTestCase(unittest.TestCase):
 
     """
     =========================================
-    is brelan test
+    is brelan test.txt
     =========================================
     """
     def test_is_brelan(self):
@@ -93,7 +93,7 @@ class MyTestCase(unittest.TestCase):
 
     """
     =========================================
-    is quinte test
+    is quinte test.txt
     =========================================
     """
     def test_is_quinte(self):
@@ -132,7 +132,7 @@ class MyTestCase(unittest.TestCase):
         self.assertFalse(sorter._Sorter__isquinte())
     """
     =========================================
-    is square test
+    is square test.txt
     =========================================
     """
     def test_is_square(self):
@@ -160,7 +160,7 @@ class MyTestCase(unittest.TestCase):
 
     """
     =========================================
-    is full test
+    is full test.txt
     =========================================
     """
     def test_is_full(self):
@@ -187,7 +187,7 @@ class MyTestCase(unittest.TestCase):
 
     """
     =========================================
-    is quinte flush test
+    is quinte flush test.txt
     =========================================
     """
     def test_is_quinte_flush(self):
@@ -225,7 +225,7 @@ class MyTestCase(unittest.TestCase):
         self.assertFalse(sorter._Sorter__isquinteflush())
     """
     =========================================
-    is quinte flush royal test
+    is quinte flush royal test.txt
     =========================================
     """
     def test_is_quinte_flush_royal(self):
@@ -264,7 +264,7 @@ class MyTestCase(unittest.TestCase):
 
     """
     =========================================
-    is full test
+    is full test.txt
     =========================================
     """
     def test_is_color(self):

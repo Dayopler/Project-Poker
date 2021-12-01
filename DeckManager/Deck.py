@@ -1,9 +1,13 @@
 import random
-from DeckManager.Card import Card
+
+from Cards.Card import Card
+from Cards.CardValues import CardValues
+from Cards.CardColors import CardColors
+from Cards.CardSymbols import CardSymbols
 
 
 class Deck:
-    minimum_size = len(Card.available_value) * len(Card.available_symbol)
+    minimum_size = (len(dir(CardValues))-4) * (len(dir(CardSymbols))-4)
 
     def __init__(self, deck_size: int = 52):
         """
@@ -39,29 +43,28 @@ class Deck:
 
     def __build(self) -> list[Card]:
         """
-        build new deck, it will return list of tuple
-        tuple contain two value:
-        - first index contain index of card value in cards_value
-        - second index contain index of card symbol in cards_symbol
-        - third index contain index of card color
-        :return list:
+        build new deck, which return Cards object
+        all the values are coming from enumerator class in Cards directory
+        :return list[Cards]:
         """
         cards_list: list[Card] = []
 
-        total_symbol = len(Card.available_symbol)
-        total_value = len(Card.available_value)
+        # one card game size is represented by minimum size attribute
         total_card_game_in_deck = int(self.size / self.minimum_size)
+
+        total_symbol = len(dir(CardSymbols))-4
+        total_value = len(dir(CardValues))-4
 
         for i in range(0, total_card_game_in_deck):
             for symbol in range(0, total_symbol):
+                color = CardColors(symbol % 2)
                 for value in range(0, total_value):
-                    color = 0 if symbol % 2 == 0 else 1
-                    cards_list.append(Card(value=value, symbol=symbol, color=color))
+                    cards_list.append(Card(value=CardValues(value), symbol=CardSymbols(symbol), color=color))
 
         return cards_list
 
 
 if __name__ == '__main__':
     d = Deck()
-    print(d.__next__())
-    print(d.__next__())
+    # print(d.__next__())
+    # print(d.__next__())

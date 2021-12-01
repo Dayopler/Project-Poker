@@ -1,4 +1,4 @@
-from DeckManager.Card import Card
+from Cards.Card import Card
 
 
 class Sorter:
