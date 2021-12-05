@@ -20,7 +20,6 @@ class Deck:
         if deck_size % self.minimum_size != 0:
             raise ValueError(f'deck must contain at least {self.minimum_size} cards')
 
-        # size of the deck
         self.size: int = deck_size
 
         # deck content
@@ -45,7 +44,7 @@ class Deck:
 
     def __build(self) -> list[Card]:
         """
-        build new deck, which return Cards object
+        build new deck, which contain Cards object
         all the values are coming from enumerator class in Cards directory
         :return list:
         """
@@ -65,9 +64,3 @@ class Deck:
                     cards_list.append(Card(value=CardValues(value), symbol=CardSymbols(symbol), color=color))
 
         return cards_list
-
-
-if __name__ == '__main__':
-    d = Deck()
-    # print(d.__next__())
-    # print(d.__next__())
