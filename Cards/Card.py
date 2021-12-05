@@ -13,49 +13,49 @@ class Card:
         return f'this card is the {self.__value.name} / {self.__symbol.name} / {self.__color.name}'
 
     @property
-    def value(self):
+    def value(self) -> int:
         """
-        get card value
-        :return:
+        get card value int format
+        :return int:
         """
         return self.__value.value
 
     @property
-    def symbol(self):
+    def symbol(self) -> int:
         """
-        get card symbol
-        :return:
+        get card symbol int format
+        :return int:
         """
         return self.__symbol.value
 
     @property
-    def color(self):
+    def color(self) -> int:
         """
-        get card color
-        :return:
+        get card color int format
+        :return int:
         """
         return self.__color.value
 
     @property
-    def value_name(self):
+    def value_name(self) -> str:
         """
-        get card string value
-        :return:
+        get card string value str format
+        :return str:
         """
         return self.__value.name
 
     @property
-    def symbol_name(self):
+    def symbol_name(self) -> str:
         """
-        get card string symbol
-        :return:
+        get card string symbol str format
+        :return str:
         """
         return self.__symbol.name
 
     @property
-    def color_name(self):
+    def color_name(self) -> str:
         """
-        get card string symbol
-        :return:
+        get card string symbol str format
+        :return str:
         """
         return self.__color.name
