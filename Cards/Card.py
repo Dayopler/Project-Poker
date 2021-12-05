@@ -10,7 +10,7 @@ class Card:
         self.__color: CardColors = color
 
     def __repr__(self):
-        return f'this card is the {self.__value.name} / {self.__symbol.name} / {self.color.name}'
+        return f'this card is the {self.__value.name} / {self.__symbol.name} / {self.__color.name}'
 
     def get_value(self):
         """
