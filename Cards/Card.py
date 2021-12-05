@@ -58,4 +58,4 @@ class Card:
         get card string symbol
         :return:
         """
-        return self.color.name
+        return self.__color.name
