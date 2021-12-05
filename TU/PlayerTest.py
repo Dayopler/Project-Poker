@@ -2,7 +2,8 @@ import unittest
 from Players.Player import Player
 from Cards.Card import *
 
-class MyTestCase(unittest.TestCase):
+
+class PlayerTest(unittest.TestCase):
 
     def test_player_name(self):
         name = 'john'

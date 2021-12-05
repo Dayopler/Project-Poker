@@ -2,7 +2,7 @@ import unittest
 from DeckManager.Deck import Deck
 
 
-class MyTestCase(unittest.TestCase):
+class DeckTest(unittest.TestCase):
 
     def test_total_card_default(self):
         deck = Deck()

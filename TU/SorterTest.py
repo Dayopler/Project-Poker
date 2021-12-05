@@ -1,10 +1,10 @@
 import unittest
 
 from CardMatch.Sorter import Sorter
-from Cards.Card import Card
+from Cards.Card import *
 
 
-class MyTestCase(unittest.TestCase):
+class SorterTest(unittest.TestCase):
     """
     =========================================
     is pair test.txt
@@ -12,11 +12,11 @@ class MyTestCase(unittest.TestCase):
     """
     def test_is_pair(self):
         hand = [
-            Card(symbol=1, value=4, color=0),
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=1, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(4), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
 
@@ -24,11 +24,11 @@ class MyTestCase(unittest.TestCase):
 
     def test_is_not_pair(self):
         hand = [
-            Card(symbol=1, value=4, color=0),
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=5, color=0),
-            Card(symbol=1, value=1, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(4), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(5), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
         self.assertFalse(sorter._Sorter__ispair())
@@ -40,11 +40,11 @@ class MyTestCase(unittest.TestCase):
     """
     def test_is_double_pair(self):
         hand = [
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=1, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(4), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(4), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
 
@@ -52,11 +52,11 @@ class MyTestCase(unittest.TestCase):
 
     def test_is_not_double_pair(self):
         hand = [
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=5, color=0),
-            Card(symbol=1, value=1, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(4), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(5), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(4), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
         self.assertFalse(sorter._Sorter__isdoublepair())
@@ -69,11 +69,11 @@ class MyTestCase(unittest.TestCase):
     """
     def test_is_brelan(self):
         hand = [
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=1, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
 
@@ -81,11 +81,11 @@ class MyTestCase(unittest.TestCase):
 
     def test_is_not_brelan(self):
         hand = [
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=5, color=0),
-            Card(symbol=1, value=1, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(4), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
         self.assertFalse(sorter._Sorter__isbrelan())
@@ -98,11 +98,11 @@ class MyTestCase(unittest.TestCase):
     """
     def test_is_quinte(self):
         hand = [
-            Card(symbol=1, value=1, color=0),
-            Card(symbol=1, value=4, color=1),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=5, color=0),
-            Card(symbol=1, value=2, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(4), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(1)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(5), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
 
@@ -110,22 +110,22 @@ class MyTestCase(unittest.TestCase):
 
     def test_is_not_quinte_continuation(self):
         hand = [
-            Card(symbol=1, value=1, color=0),
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=4, color=0),
-            Card(symbol=1, value=6, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(4), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(1)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(6), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
         self.assertFalse(sorter._Sorter__isquinte())
 
     def test_is_not_quinte_color(self):
         hand = [
-            Card(symbol=1, value=1, color=0),
-            Card(symbol=1, value=4, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=5, color=0),
-            Card(symbol=1, value=2, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(4), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(5), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
 
@@ -137,11 +137,11 @@ class MyTestCase(unittest.TestCase):
     """
     def test_is_square(self):
         hand = [
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=1, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(1)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
 
@@ -149,11 +149,11 @@ class MyTestCase(unittest.TestCase):
 
     def test_is_not_square(self):
         hand = [
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=5, color=0),
-            Card(symbol=1, value=1, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(1)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
         self.assertFalse(sorter._Sorter__issquare())
@@ -165,22 +165,22 @@ class MyTestCase(unittest.TestCase):
     """
     def test_is_full(self):
         hand = [
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=1, color=0),
-            Card(symbol=1, value=1, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
         self.assertTrue(sorter._Sorter__isfull())
 
     def test_is_not_full(self):
         hand = [
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=5, color=0),
-            Card(symbol=1, value=1, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(1)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(5), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
         self.assertFalse(sorter._Sorter__isfull())
@@ -192,11 +192,11 @@ class MyTestCase(unittest.TestCase):
     """
     def test_is_quinte_flush(self):
         hand = [
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=4, color=0),
-            Card(symbol=1, value=5, color=0),
-            Card(symbol=1, value=6, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(4), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(5), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(6), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
 
@@ -204,22 +204,22 @@ class MyTestCase(unittest.TestCase):
 
     def test_is_not_quinte_flush_symbol(self):
         hand = [
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=4, color=0),
-            Card(symbol=2, value=5, color=0),
-            Card(symbol=1, value=6, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(4), color=CardColors(0)),
+            Card(symbol=CardSymbols(2), value=CardValues(5), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(6), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
         self.assertFalse(sorter._Sorter__isquinteflush())
 
     def test_is_not_quinte_flush_value(self):
         hand = [
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=4, color=0),
-            Card(symbol=1, value=5, color=0),
-            Card(symbol=1, value=7, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(4), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(5), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(7), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
         self.assertFalse(sorter._Sorter__isquinteflush())
@@ -230,11 +230,11 @@ class MyTestCase(unittest.TestCase):
     """
     def test_is_quinte_flush_royal(self):
         hand = [
-            Card(symbol=1, value=8, color=0),
-            Card(symbol=1, value=9, color=0),
-            Card(symbol=1, value=10, color=0),
-            Card(symbol=1, value=11, color=0),
-            Card(symbol=1, value=12, color=0)
+            Card(symbol=CardSymbols(2), value=CardValues(8), color=CardColors(0)),
+            Card(symbol=CardSymbols(2), value=CardValues(9), color=CardColors(0)),
+            Card(symbol=CardSymbols(2), value=CardValues(10), color=CardColors(0)),
+            Card(symbol=CardSymbols(2), value=CardValues(11), color=CardColors(0)),
+            Card(symbol=CardSymbols(2), value=CardValues(12), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
 
@@ -242,22 +242,22 @@ class MyTestCase(unittest.TestCase):
 
     def test_is_not_right_symbol_quinte_flush_royal(self):
         hand = [
-            Card(symbol=1, value=8, color=0),
-            Card(symbol=1, value=9, color=0),
-            Card(symbol=2, value=10, color=0),
-            Card(symbol=1, value=11, color=0),
-            Card(symbol=1, value=12, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(8), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(9), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(10), color=CardColors(0)),
+            Card(symbol=CardSymbols(2), value=CardValues(11), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(12), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
         self.assertFalse(sorter._Sorter__isquinteflushroyal())
 
     def test_is_not_right_value_quinte_flush_royal(self):
         hand = [
-            Card(symbol=1, value=11, color=0),
-            Card(symbol=1, value=7, color=0),
-            Card(symbol=1, value=8, color=0),
-            Card(symbol=1, value=9, color=0),
-            Card(symbol=1, value=10, color=0)
+            Card(symbol=CardSymbols(2), value=CardValues(7), color=CardColors(0)),
+            Card(symbol=CardSymbols(2), value=CardValues(9), color=CardColors(0)),
+            Card(symbol=CardSymbols(2), value=CardValues(10), color=CardColors(0)),
+            Card(symbol=CardSymbols(2), value=CardValues(11), color=CardColors(0)),
+            Card(symbol=CardSymbols(2), value=CardValues(12), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
         self.assertFalse(sorter._Sorter__isquinteflushroyal())
@@ -269,22 +269,22 @@ class MyTestCase(unittest.TestCase):
     """
     def test_is_color(self):
         hand = [
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=3, color=0),
-            Card(symbol=1, value=1, color=0),
-            Card(symbol=1, value=1, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(5), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(5), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(6), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
         self.assertTrue(sorter._Sorter__iscolor())
 
     def test_is_not_color(self):
         hand = [
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=2, value=2, color=0),
-            Card(symbol=1, value=2, color=0),
-            Card(symbol=1, value=5, color=0),
-            Card(symbol=1, value=1, color=0)
+            Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(0)),
+            Card(symbol=CardSymbols(2), value=CardValues(3), color=CardColors(1)),
+            Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(5), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(6), color=CardColors(0)),
         ]
         sorter = Sorter(hand=hand)
         self.assertFalse(sorter._Sorter__iscolor())
