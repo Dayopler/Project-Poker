@@ -2,14 +2,23 @@ from Cards.Card import Card
 
 
 class Player:
-    def __init__(self, name: str, money: int = 100, is_ia: bool = True):
+    def __init__(self, name: str, money: int = 10, is_ia: bool = True):
         self.__name: str = name
         self.__money: int = money
         self.__is_ia: bool = is_ia
         self.__hand: list[Card] = []
 
     def __repr__(self):
-        return f'represent the player {self.__name} is IA ? {self.__is_ia}'
+        return f'represent the player {self.__name} has {self.__money}'
+
+    def get_and_reset_hand(self) -> list[Card]:
+        """
+        return card from the player hand and set the list empty
+        :return list[Card]:
+        """
+        cards = self.__hand
+        self.__hand = []
+        return cards
 
     @property
     def cards(self) -> list[Card]:
