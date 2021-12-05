@@ -48,6 +48,7 @@ class Sorter:
 
     def __ispair(self) -> bool:
         """
+        check if is pair
         :return bool:
         """
         repeat = {i: self.__cards_value.count(i) for i in self.__cards_value}
@@ -56,6 +57,7 @@ class Sorter:
 
     def __isdoublepair(self) -> bool:
         """
+        check if is double pair
         :return bool:
         """
         repeat = {i: self.__cards_value.count(i) for i in self.__cards_value}
@@ -64,6 +66,7 @@ class Sorter:
 
     def __isbrelan(self) -> bool:
         """
+        check if is brelan
         :return bool:
         """
         repeat = {i: self.__cards_value.count(i) for i in self.__cards_value}
@@ -72,6 +75,7 @@ class Sorter:
 
     def __isquinte(self) -> bool:
         """
+        check if is quinte
         :return bool:
         """
         self.__cards_value.sort()
@@ -93,6 +97,7 @@ class Sorter:
 
     def __iscolor(self) -> bool:
         """
+        check if is color
         :return bool:
         """
         repeat = {i: self.__cards_symbol.count(i) for i in self.__cards_symbol}
@@ -101,6 +106,7 @@ class Sorter:
 
     def __isfull(self) -> bool:
         """
+        check if is full
         :return bool:
         """
         repeat = {i: self.__cards_value.count(i) for i in self.__cards_value}
@@ -109,6 +115,7 @@ class Sorter:
 
     def __issquare(self) -> bool:
         """"
+        check if is square
         :return bool:
         """
         repeat = {i: self.__cards_value.count(i) for i in self.__cards_value}
@@ -117,6 +124,7 @@ class Sorter:
 
     def __isquinteflush(self) -> bool:
         """
+        check if is quinte flush
         :return bool:
         """
         for i in range(0, len(self.__kicker_card) - 1):

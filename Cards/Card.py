@@ -10,54 +10,52 @@ class Card:
         self.__color: CardColors = color
 
     def __repr__(self):
-        return f'this card is the {self.__value.name} / {self.__symbol.name} / {self.color.name}'
+        return f'this card is the {self.__value.name} / {self.__symbol.name} / {self.__color.name}'
 
-    def get_value(self):
+    @property
+    def value(self) -> int:
         """
-        get card value
-        :return:
+        get card value int format
+        :return int:
         """
         return self.__value.value
 
-    def get_symbol(self):
+    @property
+    def symbol(self) -> int:
         """
-        get card symbol
-        :return:
+        get card symbol int format
+        :return int:
         """
         return self.__symbol.value
 
-    def get_color(self):
+    @property
+    def color(self) -> int:
         """
-        get card color
-        :return:
+        get card color int format
+        :return int:
         """
         return self.__color.value
 
-    def get_value_name(self):
+    @property
+    def value_name(self) -> str:
         """
-        get card string value
-        :return:
+        get card string value str format
+        :return str:
         """
         return self.__value.name
 
-    def get_symbol_name(self):
+    @property
+    def symbol_name(self) -> str:
         """
-        get card string symbol
-        :return:
+        get card string symbol str format
+        :return str:
         """
         return self.__symbol.name
 
-    def get_color_name(self):
+    @property
+    def color_name(self) -> str:
         """
-        get card string symbol
-        :return:
+        get card string symbol str format
+        :return str:
         """
-        return self.color.name
-
-    value = property(fget=get_value)
-    symbol = property(fget=get_symbol)
-    color = property(fget=get_color)
-
-    value_name = property(fget=get_value_name)
-    symbol_name = property(fget=get_symbol_name)
-    color_name = property(fget=get_color_name)
+        return self.__color.name

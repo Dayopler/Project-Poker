@@ -16,24 +16,23 @@ class Deck:
         deck minimum_size represent the total of card the game will get inside
         :param deck_size:
         """
-        # check if deck size's correct
+        # check if deck __size's correct
         if deck_size % self.minimum_size != 0:
             raise ValueError(f'deck must contain at least {self.minimum_size} cards')
 
-        # size of the deck
-        self.size: int = deck_size
+        self.__size: int = deck_size
 
         # deck content
         self.__cards: list[Card] = self.__build()
 
     def __repr__(self):
-        return f"represent deck contains {self.size} card"
+        return f"represent deck contains {self.__size} card"
 
     def __iter__(self):
         return self.__cards
 
     def __next__(self) -> Card:
-        self.size -= 1
+        self.__size -= 1
         return self.__cards.pop(0)
 
     def shuffle(self):
@@ -45,15 +44,15 @@ class Deck:
 
     def __build(self) -> list[Card]:
         """
-        build new deck, which return Cards object
+        build new deck, which contain Cards object
         all the values are coming from enumerator class in Cards directory
         :return list:
         """
         cards_list: list[Card] = []
 
-        # one card game size is represented by minimum size attribute
+        # one card game __size is represented by minimum __size attribute
         # making this is to know how many card game we need in the deck
-        total_card_game_in_deck = int(self.size / self.minimum_size)
+        total_card_game_in_deck = int(self.__size / self.minimum_size)
 
         total_symbol = len(dir(CardSymbols))-4
         total_value = len(dir(CardValues))-4
@@ -66,8 +65,6 @@ class Deck:
 
         return cards_list
 
-
-if __name__ == '__main__':
-    d = Deck()
-    # print(d.__next__())
-    # print(d.__next__())
+    @property
+    def size(self) -> int:
+        return self.__size
