@@ -46,11 +46,18 @@ class Player:
 
     @money.setter
     def money(self, amount: int):
+        """
+        set the money amount
+
+        :param amount:
+        :return:
+        """
         self.__money += amount
 
     @property
     def name(self) -> str:
         """
+        get the player name
         :return str:
         """
         return self.__name
@@ -58,6 +65,7 @@ class Player:
     @property
     def is_ia(self) -> bool:
         """
+        know if the player is an IA or not
         :return bool:
         """
         return self.__is_ia
