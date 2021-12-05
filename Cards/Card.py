@@ -12,52 +12,50 @@ class Card:
     def __repr__(self):
         return f'this card is the {self.__value.name} / {self.__symbol.name} / {self.__color.name}'
 
-    def get_value(self):
+    @property
+    def value(self):
         """
         get card value
         :return:
         """
         return self.__value.value
 
-    def get_symbol(self):
+    @property
+    def symbol(self):
         """
         get card symbol
         :return:
         """
         return self.__symbol.value
 
-    def get_color(self):
+    @property
+    def color(self):
         """
         get card color
         :return:
         """
         return self.__color.value
 
-    def get_value_name(self):
+    @property
+    def value_name(self):
         """
         get card string value
         :return:
         """
         return self.__value.name
 
-    def get_symbol_name(self):
+    @property
+    def symbol_name(self):
         """
         get card string symbol
         :return:
         """
         return self.__symbol.name
 
-    def get_color_name(self):
+    @property
+    def color_name(self):
         """
         get card string symbol
         :return:
         """
         return self.color.name
-
-    value = property(fget=get_value)
-    symbol = property(fget=get_symbol)
-    color = property(fget=get_color)
-
-    value_name = property(fget=get_value_name)
-    symbol_name = property(fget=get_symbol_name)
-    color_name = property(fget=get_color_name)
