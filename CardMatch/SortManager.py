@@ -21,15 +21,13 @@ class SorterManager:
         :return int:
         """
         hands: list[int] = self.__get_hands_weight()
-        max_weight: int = max(hands)
+        max_weight: int = max(self.__get_hands_weight())
 
-        comparable: list[list[int]] = [self.__hands[hands.index(i)].kicker_card for i in hands if i == max_weight]
+        # get equal hands index
+        equal_hands_index = [i for i in range(0, len(hands)) if hands[i] == max_weight]
 
-        # check if there is more than one max value in hands
-        if len(comparable) > 1:
-            for i in range(4, -1, -1):
-                pass
-
+        if len(equal_hands_index) > 1:
+            pass
         else:
             return max_weight
 
@@ -49,7 +47,7 @@ class SorterManager:
 
 if __name__ == '__main__':
     hand1 = [
-            Card(symbol=CardSymbols(1), value=CardValues(4), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(5), color=CardColors(0)),
             Card(symbol=CardSymbols(3), value=CardValues(2), color=CardColors(1)),
             Card(symbol=CardSymbols(2), value=CardValues(3), color=CardColors(0)),
             Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(0)),
