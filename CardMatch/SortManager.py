@@ -1,4 +1,5 @@
 from Sorter import Sorter
+from Cards.Card import *
 
 
 class SorterManager:
@@ -31,5 +32,21 @@ class SorterManager:
 
 
 if __name__ == '__main__':
-    s = SorterManager()
+    hand1 = [
+            Card(symbol=CardSymbols(1), value=CardValues(4), color=CardColors(0)),
+            Card(symbol=CardSymbols(3), value=CardValues(2), color=CardColors(1)),
+            Card(symbol=CardSymbols(2), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
+        ]
+
+    hand2 = [
+            Card(symbol=CardSymbols(1), value=CardValues(6), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(5), color=CardColors(0)),
+            Card(symbol=CardSymbols(2), value=CardValues(3), color=CardColors(1)),
+            Card(symbol=CardSymbols(1), value=CardValues(7), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
+        ]
+
+    s = SorterManager(hands=[hand1, hand2])
     s.compare()

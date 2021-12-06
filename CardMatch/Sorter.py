@@ -28,23 +28,25 @@ class Sorter:
         :return int:
         """
         if self.__ispair():
-            return 0
-        elif self.__isdoublepair():
             return 1
-        elif self.__isbrelan():
+        elif self.__isdoublepair():
             return 2
-        elif self.__isquinte():
+        elif self.__isbrelan():
             return 3
-        elif self.__iscolor():
+        elif self.__isquinte():
             return 4
-        elif self.__isfull():
+        elif self.__iscolor():
             return 5
-        elif self.__issquare():
+        elif self.__isfull():
             return 6
-        elif self.__isquinteflush():
+        elif self.__issquare():
             return 7
-        elif self.__isquinteflushroyal():
+        elif self.__isquinteflush():
             return 8
+        elif self.__isquinteflushroyal():
+            return 9
+        else:
+            return 0
 
     def __ispair(self) -> bool:
         """
