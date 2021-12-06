@@ -20,12 +20,21 @@ class SorterManager:
         return the index of the higher hand
         :return int:
         """
-        return max(self.__compare())
+        hands: list[int] = self.__get_hands_weight()
+        max_weight: int = max(hands)
 
-    def __compare(self):
+        comparable: list[Sorter] = [self.__hands[hands.index(i)] for i in hands if i == max_weight]
+
+        # check if there is more than one max value in hands
+        if len(comparable) > 1:
+            pass
+        else:
+            return max_weight
+
+    def __get_hands_weight(self) -> list[int]:
         """
         compare the given player's hand
-        :return:
+        :return list[int]:
         """
         # stock the weight of compared hand
         hands_weight: list = []
@@ -53,5 +62,13 @@ if __name__ == '__main__':
             Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
         ]
 
-    s = SorterManager(hands=[hand1, hand2])
+    hand3 = [
+            Card(symbol=CardSymbols(1), value=CardValues(4), color=CardColors(0)),
+            Card(symbol=CardSymbols(3), value=CardValues(2), color=CardColors(1)),
+            Card(symbol=CardSymbols(2), value=CardValues(3), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(2), color=CardColors(0)),
+            Card(symbol=CardSymbols(1), value=CardValues(1), color=CardColors(0)),
+        ]
+
+    s = SorterManager(hands=[hand1, hand2, hand3])
     print(s.get_higher())
