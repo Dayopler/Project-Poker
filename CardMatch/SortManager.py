@@ -12,12 +12,17 @@ class SorterManager:
 
     def get_higher(self) -> int:
         """
+        TODO
+            - check if the higher weight isn't present 2 times or more
+            - if more than one unique higher weight compare on the higher card
+            - return the hand with the higher card if needed
+
         return the index of the higher hand
         :return int:
         """
-        pass
+        return max(self.__compare())
 
-    def compare(self):
+    def __compare(self):
         """
         compare the given player's hand
         :return:
@@ -28,7 +33,7 @@ class SorterManager:
         for hand in self.__hands:
             hands_weight.append(hand.sort())
 
-        print(hands_weight)
+        return hands_weight
 
 
 if __name__ == '__main__':
@@ -49,4 +54,4 @@ if __name__ == '__main__':
         ]
 
     s = SorterManager(hands=[hand1, hand2])
-    s.compare()
+    print(s.get_higher())
