@@ -2,10 +2,12 @@ from Cards.Card import Card
 
 
 class Player:
-    def __init__(self, name: str, money: int = 10, is_ia: bool = True):
+    def __init__(self, name: str, money: int = 10, is_ia: bool = True, is_small_blind: bool = False, is_big_blind: bool = False):
         self.__name: str = name
         self.__money: int = money
         self.__is_ia: bool = is_ia
+        self.__is_small_blind: bool = is_small_blind
+        self.__is_big_blind: bool = is_big_blind
         self.__hand: list[Card] = []
 
     def __repr__(self):
@@ -69,3 +71,19 @@ class Player:
         :return bool:
         """
         return self.__is_ia
+
+    @property
+    def is_small_blind(self) -> bool:
+        """
+        know if the player is an IA or not
+        :return bool:
+        """
+        return self.__is_small_blind
+
+    @property
+    def is_big_blind(self) -> bool:
+        """
+        know if the player is an IA or not
+        :return bool:
+        """
+        return self.__is_big_blind
