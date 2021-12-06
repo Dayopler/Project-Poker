@@ -27,6 +27,8 @@ class SorterManager:
 
         # check if there is more than one max value in hands
         if len(comparable) > 1:
+            for i in range(4, -1, -1):
+                pass
 
         else:
             return max_weight
