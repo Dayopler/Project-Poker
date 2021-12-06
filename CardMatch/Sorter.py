@@ -15,7 +15,7 @@ class Sorter:
         self.__cards_symbol: list[int] = [card.symbol for card in hand]
         self.__cards_color: list[int] = [card.color for card in hand]
 
-        self.__kicker_card = self.__cards_value
+        self.__kicker_card: list[int] = self.__cards_value
         self.__kicker_card.sort()
 
     def __repr__(self):
@@ -159,3 +159,7 @@ class Sorter:
             return True
 
         return False
+
+    @property
+    def kicker_card(self):
+        return self.__kicker_card

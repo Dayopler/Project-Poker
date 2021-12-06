@@ -23,11 +23,11 @@ class SorterManager:
         hands: list[int] = self.__get_hands_weight()
         max_weight: int = max(hands)
 
-        comparable: list[Sorter] = [self.__hands[hands.index(i)] for i in hands if i == max_weight]
+        comparable: list[list[int]] = [self.__hands[hands.index(i)].kicker_card for i in hands if i == max_weight]
 
         # check if there is more than one max value in hands
         if len(comparable) > 1:
-            pass
+
         else:
             return max_weight
 
