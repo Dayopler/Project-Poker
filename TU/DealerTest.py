@@ -16,5 +16,17 @@ class DealerTest(unittest.TestCase):
 
         self.assertEqual(cash_prize, dealer.cash_prize)
 
+    def test_get_reveal_cards_default_value(self):
+        dealer = Dealer()
+
+        self.assertEqual(3, len(dealer.reveal_cards()))
+
+    def test_get_reveal_cards_custom_value(self):
+        cards_reveal = 5
+        dealer = Dealer()
+
+        self.assertEqual(cards_reveal, len(dealer.reveal_cards(amount=cards_reveal)))
+
+
 if __name__ == '__main__':
     unittest.main()

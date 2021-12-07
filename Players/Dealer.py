@@ -24,7 +24,7 @@ class Dealer:
         :param amount:
         :return list:
         """
-        return [self.__deck.__next__() for i in range(0, amount-1)]
+        return [self.__deck.__next__() for i in range(0, amount)]
 
     @property
     def cash_prize(self) -> int:
