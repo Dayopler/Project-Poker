@@ -1,6 +1,6 @@
 import unittest
-from CardMatch.SortManager import SorterManager
-from Cards.Card import *
+from PokerGame.CardMatch.SortManager import SorterManager
+from PokerGame.DeckManager.Card import *
 
 
 class SorterManagerTest(unittest.TestCase):
