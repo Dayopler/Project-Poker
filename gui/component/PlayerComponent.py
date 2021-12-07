@@ -5,23 +5,38 @@ from PyQt5.QtWidgets import *
 
 
 class PlayerComponent(Player):
-    def __init__(self, name: str, main_window):
-        super().__init__(name)
+    POSITION_1 = QRect(20, 180, 181, 181)
+    POSITION_2 = QRect(290, 30, 181, 181)
+    POSITION_3 = QRect(590, 30, 181, 181)
+    POSITION_4 = QRect(800, 190, 181, 181)
+
+    def __init__(self, name: str, position_index: int, is_ia: bool = True):
+        super().__init__(name, is_ia=is_ia)
+
+        # check the index for placing player on the window
+        if position_index == 0:
+            self.__position_index = self.POSITION_1
+        elif position_index == 1:
+            self.__position_index = self.POSITION_2
+        elif position_index == 2:
+            self.__position_index = self.POSITION_3
+        elif position_index == 3:
+            self.__position_index = self.POSITION_4
+
         self.__cards_component = [CardComponent(), CardComponent()]
-        self.__main_window = main_window
 
     def __repr__(self):
-        return 'player component'
+        return f'player component {self.name}'
 
-    def get(self):
+    def get(self, MainWindow):
         """
         return the component build
         :return:
         """
         # set up the widget
-        self.player = QWidget(self.__main_window)
+        self.player = QWidget(MainWindow)
         self.player.setObjectName(u"player")
-        self.player.setGeometry(QRect(20, 180, 181, 181))
+        self.player.setGeometry(self.__position_index)
 
         # horizontal container
         self.horizontalLayoutWidget = QWidget(self.player)
