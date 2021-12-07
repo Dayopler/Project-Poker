@@ -3,7 +3,7 @@ import sys
 from PyQt5.QtWidgets import (
     QApplication, QDialog, QMainWindow, QMessageBox
 )
-from page import Ui_MainWindow
+from gui.interface_content import Ui_MainWindow
 
 
 class Window(QMainWindow, Ui_MainWindow):
@@ -11,6 +11,7 @@ class Window(QMainWindow, Ui_MainWindow):
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
