@@ -1,13 +1,19 @@
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
+from gui.component.PlayerComponent import PlayerComponent
 
 
 class Ui_MainWindow(object):
+
     def setupUi(self, MainWindow):
-        if not MainWindow.objectName():
-            MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(1011, 581)
         MainWindow.setStyleSheet(u"")
+
+        """
+        =============================
+        toolbar action
+        =============================
+        """
         self.actionLoad = QAction(MainWindow)
         self.actionLoad.setObjectName(u"actionLoad")
         self.actionSave = QAction(MainWindow)
@@ -15,60 +21,19 @@ class Ui_MainWindow(object):
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"")
-        self.player = QWidget(self.centralwidget)
-        self.player.setObjectName(u"player")
-        self.player.setGeometry(QRect(20, 180, 181, 181))
-        self.horizontalLayoutWidget = QWidget(self.player)
-        self.horizontalLayoutWidget.setObjectName(u"horizontalLayoutWidget")
-        self.horizontalLayoutWidget.setGeometry(QRect(0, 0, 181, 61))
-        self.player_infos = QHBoxLayout(self.horizontalLayoutWidget)
-        self.player_infos.setObjectName(u"player_infos")
-        self.player_infos.setContentsMargins(0, 0, 0, 0)
-        self.player_name_status = QVBoxLayout()
-        self.player_name_status.setObjectName(u"player_name_status")
-        self.player_name = QLabel(self.horizontalLayoutWidget)
-        self.player_name.setObjectName(u"player_name")
 
-        self.player_name_status.addWidget(self.player_name)
+        """
+        =============================
+        player component
+        =============================
+        """
+        PlayerComponent(name='john', main_window=MainWindow).get()
 
-        self.player_status = QLabel(self.horizontalLayoutWidget)
-        self.player_status.setObjectName(u"player_status")
-
-        self.player_name_status.addWidget(self.player_status)
-
-
-        self.player_infos.addLayout(self.player_name_status)
-
-        self.player_money_infos = QHBoxLayout()
-        self.player_money_infos.setObjectName(u"player_money_infos")
-        self.player_money = QLabel(self.horizontalLayoutWidget)
-        self.player_money.setObjectName(u"player_money")
-
-        self.player_money_infos.addWidget(self.player_money)
-
-
-        self.player_infos.addLayout(self.player_money_infos)
-
-        self.horizontalLayoutWidget_3 = QWidget(self.player)
-        self.horizontalLayoutWidget_3.setObjectName(u"horizontalLayoutWidget_3")
-        self.horizontalLayoutWidget_3.setGeometry(QRect(0, 60, 181, 121))
-        self.card_infos = QHBoxLayout(self.horizontalLayoutWidget_3)
-        self.card_infos.setObjectName(u"card_infos")
-        self.card_infos.setContentsMargins(0, 0, 0, 0)
-        self.card1 = QFrame(self.horizontalLayoutWidget_3)
-        self.card1.setObjectName(u"card1")
-        self.card1.setFrameShape(QFrame.StyledPanel)
-        self.card1.setFrameShadow(QFrame.Raised)
-
-        self.card_infos.addWidget(self.card1)
-
-        self.card2 = QFrame(self.horizontalLayoutWidget_3)
-        self.card2.setObjectName(u"card2")
-        self.card2.setFrameShape(QFrame.StyledPanel)
-        self.card2.setFrameShadow(QFrame.Raised)
-
-        self.card_infos.addWidget(self.card2)
-
+        """
+        =============================
+        card revealed
+        =============================
+        """
         self.card_revealed_infos = QWidget(self.centralwidget)
         self.card_revealed_infos.setObjectName(u"card_revealed_infos")
         self.card_revealed_infos.setGeometry(QRect(270, 200, 481, 171))
@@ -318,9 +283,6 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.actionLoad.setText(QCoreApplication.translate("MainWindow", u"Load seed", None))
         self.actionSave.setText(QCoreApplication.translate("MainWindow", u"Save seed", None))
-        self.player_name.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.player_status.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.player_money.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.button_follow.setText(QCoreApplication.translate("MainWindow", u"Follow", None))
         self.button_bet.setText(QCoreApplication.translate("MainWindow", u"Bet", None))
         self.button_fold.setText(QCoreApplication.translate("MainWindow", u"Fold", None))

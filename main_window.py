@@ -1,8 +1,6 @@
 import sys
 
-from PyQt5.QtWidgets import (
-    QApplication, QDialog, QMainWindow, QMessageBox
-)
+from PyQt5.QtWidgets import (QApplication, QMainWindow)
 from gui.interface_content import Ui_MainWindow
 
 
