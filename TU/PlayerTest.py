@@ -1,6 +1,6 @@
 import unittest
-from Players.Player import Player
-from Cards.Card import *
+from PokerGame.Players.Player import Player
+from PokerGame.DeckManager.Card import *
 
 
 class PlayerTest(unittest.TestCase):

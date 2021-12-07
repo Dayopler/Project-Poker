@@ -1,4 +1,4 @@
-from Cards.Card import Card
+from PokerGame.DeckManager import Card
 
 
 class Player:

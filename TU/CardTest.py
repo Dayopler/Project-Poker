@@ -1,5 +1,5 @@
 import unittest
-from Cards.Card import *
+from PokerGame.DeckManager.Card import *
 
 
 class CardTest(unittest.TestCase):

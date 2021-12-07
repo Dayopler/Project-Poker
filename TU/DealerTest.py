@@ -1,5 +1,5 @@
 import unittest
-from Players.Dealer import Dealer
+from PokerGame.Players.Dealer import Dealer
 
 
 class DealerTest(unittest.TestCase):

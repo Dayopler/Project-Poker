@@ -1,6 +1,6 @@
-from Cards.CardValues import CardValues
-from Cards.CardColors import CardColors
-from Cards.CardSymbols import CardSymbols
+from PokerGame.DeckManager.CardValues import CardValues
+from PokerGame.DeckManager.CardColors import CardColors
+from PokerGame.DeckManager.CardSymbols import CardSymbols
 
 
 class Card:
