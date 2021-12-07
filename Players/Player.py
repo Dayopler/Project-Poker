@@ -87,3 +87,19 @@ class Player:
         :return bool:
         """
         return self.__is_big_blind
+
+    @is_small_blind.setter
+    def is_small_blind(self, is_small_blind: bool):
+        """
+        know if the player is small blind
+        :return:
+        """
+        self.__is_small_blind = is_small_blind
+
+    @is_big_blind.setter
+    def is_big_blind(self, is_big_blind: bool):
+        """
+        know if the player is big blind
+        :return:
+        """
+        self.__is_big_blind = is_big_blind
