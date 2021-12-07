@@ -17,6 +17,15 @@ class Dealer:
         """
         return self.__deck.__next__()
 
+    def reveal_cards(self, amount=3) -> list:
+        """
+        reveal given amount of card
+
+        :param amount:
+        :return list:
+        """
+        return [self.__deck.__next__() for i in range(0, amount-1)]
+
     @property
     def cash_prize(self) -> int:
         """
