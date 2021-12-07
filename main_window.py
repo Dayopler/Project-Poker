@@ -11,15 +11,6 @@ class Window(QMainWindow, Ui_MainWindow):
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.connectSignalsSlots()
-
-    def connectSignalsSlots(self):
-        self.ui.action_Exit.triggered.connect(self.close)
-        self.ui.action_Find_Replace.triggered.connect(
-            self.findAndReplace
-        )
-        self.ui.action_About.triggered.connect(self.about)
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
