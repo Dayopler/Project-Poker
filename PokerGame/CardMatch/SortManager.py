@@ -1,4 +1,4 @@
-from CardMatch.Sorter import Sorter
+from PokerGame.CardMatch.Sorter import Sorter
 
 
 class SorterManager:
