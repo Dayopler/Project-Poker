@@ -61,7 +61,6 @@ class PlayerComponent(Player, Component):
         self.player_status.setText(QCoreApplication.translate("MainWindow", u"IA" if self.is_ia else u"You", None))
         self.player_name_status.addWidget(self.player_status)
 
-
         self.player_infos.addLayout(self.player_name_status)
 
         # money player have

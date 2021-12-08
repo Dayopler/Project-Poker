@@ -13,12 +13,7 @@ class Ui_MainWindow(object):
 
         self.players: list[PlayerComponent] = []
         self.cards_revealed: list[CardComponent] = []
-        self.buttons: list[ButtonComponent] = [ButtonComponent('Suivre', 'follow'),
-                                               ButtonComponent('Parole', 'nothing'),
-                                               ButtonComponent('Se Coucher', 'giveup'),
-                                               ButtonComponent('Miser', 'bet'),
-                                               ButtonComponent('Ajouter', 'add'),
-                                               ]
+
         # set players places
         player_place: int = randint(0, 3)
         for i in range(0, 4):
@@ -26,6 +21,13 @@ class Ui_MainWindow(object):
                 self.players.append(PlayerComponent(name=f'PlayerName', is_ia=False, position_index=i))
             else:
                 self.players.append(PlayerComponent(name=f'IA-{i}', position_index=i))
+
+        self.buttons: list[ButtonComponent] = [ButtonComponent('Suivre', 'follow', self.players),
+                                               ButtonComponent('Parole', 'nothing', self.players),
+                                               ButtonComponent('Se Coucher', 'giveup', self.players),
+                                               ButtonComponent('Miser', 'bet', self.players),
+                                               ButtonComponent('Ajouter', 'add', self.players),
+                                               ]
 
     def setupUi(self, MainWindow):
         MainWindow.resize(1011, 581)
@@ -113,7 +115,7 @@ class Ui_MainWindow(object):
         self.button_group.setContentsMargins(0, 0, 0, 0)
 
         for button in self.buttons:
-            button.get(self.horizontalLayoutWidget_5, self.button_group)
+            button.get(container=self.horizontalLayoutWidget_5, group=self.button_group)
 
         """
         =============================
