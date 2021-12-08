@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import *
 from gui.component.PlayerComponent import PlayerComponent
 from gui.component.CardComponent import CardComponent
 from gui.component.ButtonComponent import ButtonComponent
+from PokerGame.Players.Dealer import Dealer
 from random import randint
 
 
@@ -10,6 +11,7 @@ class Ui_MainWindow(object):
 
     def __init__(self):
         #declare layout and container
+        self.dealer = Dealer()
 
         self.players: list[PlayerComponent] = []
         self.cards_revealed: list[CardComponent] = []
@@ -22,11 +24,11 @@ class Ui_MainWindow(object):
             else:
                 self.players.append(PlayerComponent(name=f'IA-{i}', position_index=i))
 
-        self.buttons: list[ButtonComponent] = [ButtonComponent('Suivre', 'follow', self.players),
-                                               ButtonComponent('Parole', 'nothing', self.players),
-                                               ButtonComponent('Se Coucher', 'giveup', self.players),
-                                               ButtonComponent('Miser', 'bet', self.players),
-                                               ButtonComponent('Ajouter', 'add', self.players),
+        self.buttons: list[ButtonComponent] = [ButtonComponent('Suivre', 'follow', self.players, self.dealer),
+                                               ButtonComponent('Parole', 'nothing', self.players, self.dealer),
+                                               ButtonComponent('Se Coucher', 'giveup', self.players, self.dealer),
+                                               ButtonComponent('Miser', 'bet', self.players, self.dealer),
+                                               ButtonComponent('Ajouter', 'add', self.players, self.dealer),
                                                ]
 
     def setupUi(self, MainWindow):

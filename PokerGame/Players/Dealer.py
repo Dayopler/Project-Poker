@@ -1,4 +1,4 @@
-from PokerGame.DeckManager import Deck, Card
+from PokerGame.DeckManager.Deck import Deck, Card
 
 
 class Dealer:

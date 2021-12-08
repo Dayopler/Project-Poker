@@ -1,14 +1,16 @@
 from gui.component.Component import Component
 from gui.component.PlayerComponent import PlayerComponent
+from PokerGame.Players.Dealer import Dealer
 from PyQt5.QtWidgets import *
 
 
 class ButtonComponent(Component):
     AVAILABLE_ACTION: tuple = ('follow', 'bet', 'add', 'giveup', 'nothing')
 
-    def __init__(self, title: str, action: str, players: list[PlayerComponent]):
+    def __init__(self, title: str, action: str, players: list[PlayerComponent], dealer: Dealer):
         self.__title = title
         self.__players = players
+        self.__dealer = dealer
         self.button = None
 
         # check if the action exist
@@ -46,3 +48,5 @@ class ButtonComponent(Component):
         """
         for player in self.__players:
             player.money = -1
+            self.__dealer.cash_prize = 1
+            print(f'dealer cash {self.__dealer.cash_prize}')
