@@ -3,15 +3,24 @@ from PyQt5.QtWidgets import *
 
 
 class ButtonComponent(Component):
-    def __init__(self, title: str, action: str, button_horizontal_layout):
+    AVAILABLE_ACTION: tuple = ('follow', 'bet', 'add', 'giveup', 'nothing')
+
+    def __init__(self, title: str, action: str):
         self.__title = title
-        self.__action = action
-        self.container = button_horizontal_layout
+        self.button = None
+
+        # check if the action exist
+        if action in self.AVAILABLE_ACTION:
+            self.__action = action
+        else:
+            raise ValueError('action invalid')
 
     def __repr__(self):
-        return 'represent button to do action on the game'
+        return f'represent button {self.__title}'
 
-    def get(self):
-        self.button_parole = QPushButton(self.container)
-        self.button_parole.setObjectName(self.__title)
-        self.button_parole.clicked.connect(lambda: print(f'hello from {self.__action}'))
+    def get(self, container, group):
+        self.button = QPushButton(container)
+        self.button.setObjectName(self.__title)
+        self.button.setText(self.__title)
+        self.button.clicked.connect(lambda: print(f'hello from {self.__action}'))
+        group.addWidget(self.button)

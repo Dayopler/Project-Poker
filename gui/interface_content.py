@@ -1,6 +1,7 @@
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from gui.component.PlayerComponent import PlayerComponent
+from gui.component.CardComponent import CardComponent
 from gui.component.ButtonComponent import ButtonComponent
 from random import randint
 
@@ -9,22 +10,17 @@ class Ui_MainWindow(object):
 
     def __init__(self):
         #declare layout and container
-        self.horizontalLayoutWidget_5 = QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_6 = QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_7 = QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_8 = QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_9 = QWidget(self.centralwidget)
 
         self.players: list[PlayerComponent] = []
-        self.cards_revealed: list[PlayerComponent] = []
-        self.buttons: list[ButtonComponent] = [ButtonComponent('Suivre', 'Suivre', self.horizontalLayoutWidget_5),
-                                               ButtonComponent('Parole', 'Parole', self.horizontalLayoutWidget_6),
-                                               ButtonComponent('Ajouter 1€', 'Ajouter 1€', self.horizontalLayoutWidget_7),
-                                               ButtonComponent('Miser', 'Miser', self.horizontalLayoutWidget_8),
-                                               ButtonComponent('Se Coucher', 'Se Coucher', self.horizontalLayoutWidget_9)
+        self.cards_revealed: list[CardComponent] = []
+        self.buttons: list[ButtonComponent] = [ButtonComponent('Follow', 'follow'),
+                                               ButtonComponent('Parole', 'nothing'),
+                                               ButtonComponent('Ajouter', 'add'),
+                                               ButtonComponent('Se Coucher', 'giveup'),
+                                               ButtonComponent('Bet', 'bet'),
                                                ]
+        # set players places
         player_place: int = randint(0, 3)
-
         for i in range(0, 4):
             if player_place == i:
                 self.players.append(PlayerComponent(name=f'PlayerName', is_ia=False, position_index=i))
@@ -34,7 +30,6 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.resize(1011, 581)
         MainWindow.setStyleSheet(u"")
-
 
         """
         =============================
@@ -48,6 +43,12 @@ class Ui_MainWindow(object):
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"")
+
+        self.horizontalLayoutWidget_5 = QWidget(self.centralwidget)
+        self.horizontalLayoutWidget_6 = QWidget(self.centralwidget)
+        self.horizontalLayoutWidget_7 = QWidget(self.centralwidget)
+        self.horizontalLayoutWidget_8 = QWidget(self.centralwidget)
+        self.horizontalLayoutWidget_9 = QWidget(self.centralwidget)
 
         """
         =============================
@@ -99,16 +100,26 @@ class Ui_MainWindow(object):
 
         self.card_revealed_container.addWidget(self.card_revealed_4)
 
-
+        """
+        =============================
+        button component
+        =============================
+        """
         self.horizontalLayoutWidget_5.setObjectName(u"horizontalLayoutWidget_5")
         self.horizontalLayoutWidget_5.setGeometry(QRect(10, 429, 991, 91))
+
         self.button_group = QHBoxLayout(self.horizontalLayoutWidget_5)
         self.button_group.setObjectName(u"button_group")
         self.button_group.setContentsMargins(0, 0, 0, 0)
 
         for button in self.buttons:
-            self.button_group.addWidget(button)
+            button.get(self.horizontalLayoutWidget_5, self.button_group)
 
+        """
+        =============================
+        menu bar
+        =============================
+        """
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
