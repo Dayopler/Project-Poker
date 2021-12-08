@@ -13,13 +13,15 @@ class Ui_MainWindow(object):
         self.horizontalLayoutWidget_6 = QWidget(self.centralwidget)
         self.horizontalLayoutWidget_7 = QWidget(self.centralwidget)
         self.horizontalLayoutWidget_8 = QWidget(self.centralwidget)
+        self.horizontalLayoutWidget_9 = QWidget(self.centralwidget)
 
         self.players: list[PlayerComponent] = []
         self.cards_revealed: list[PlayerComponent] = []
         self.buttons: list[ButtonComponent] = [ButtonComponent('Suivre', 'Suivre', self.horizontalLayoutWidget_5),
                                                ButtonComponent('Parole', 'Parole', self.horizontalLayoutWidget_6),
-                                               ButtonComponent('Miser 1€', 'Miser 1€', self.horizontalLayoutWidget_7),
-                                               ButtonComponent('Se Coucher', 'Se Coucher', self.horizontalLayoutWidget_8)
+                                               ButtonComponent('Ajouter 1€', 'Ajouter 1€', self.horizontalLayoutWidget_7),
+                                               ButtonComponent('Miser', 'Miser', self.horizontalLayoutWidget_8),
+                                               ButtonComponent('Se Coucher', 'Se Coucher', self.horizontalLayoutWidget_9)
                                                ]
         player_place: int = randint(0, 3)
 
