@@ -8,3 +8,9 @@ class Component:
         :return:
         """
         pass
+
+    def set_text(self):
+        """
+        set the text of the passed object
+        :return:
+        """
