@@ -1,13 +1,19 @@
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from gui.component.PlayerComponent import PlayerComponent
+from gui.component.ButtonComponent import ButtonComponent
 from random import randint
 
 
 class Ui_MainWindow(object):
 
     def __init__(self):
+        #declare layout and container
+        self.horizontalLayoutWidget_5 = QWidget(self.centralwidget)
+
         self.players: list[PlayerComponent] = []
+        self.cards_revealed: list[PlayerComponent] = []
+        self.buttons: list[ButtonComponent] = [ButtonComponent('bet', 'bet', self.horizontalLayoutWidget_5), ButtonComponent('follow', 'follow', self.horizontalLayoutWidget_5)]
         player_place: int = randint(0, 3)
 
         for i in range(0, 4):
@@ -19,6 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.resize(1011, 581)
         MainWindow.setStyleSheet(u"")
+
 
         """
         =============================
@@ -83,31 +90,15 @@ class Ui_MainWindow(object):
 
         self.card_revealed_container.addWidget(self.card_revealed_4)
 
-        self.horizontalLayoutWidget_5 = QWidget(self.centralwidget)
+
         self.horizontalLayoutWidget_5.setObjectName(u"horizontalLayoutWidget_5")
         self.horizontalLayoutWidget_5.setGeometry(QRect(10, 429, 991, 91))
         self.button_group = QHBoxLayout(self.horizontalLayoutWidget_5)
         self.button_group.setObjectName(u"button_group")
         self.button_group.setContentsMargins(0, 0, 0, 0)
-        self.button_follow = QPushButton(self.horizontalLayoutWidget_5)
-        self.button_follow.setObjectName(u"button_follow")
 
-        self.button_group.addWidget(self.button_follow)
-
-        self.button_bet = QPushButton(self.horizontalLayoutWidget_5)
-        self.button_bet.setObjectName(u"button_bet")
-
-        self.button_group.addWidget(self.button_bet)
-
-        self.button_fold = QPushButton(self.horizontalLayoutWidget_5)
-        self.button_fold.setObjectName(u"button_fold")
-
-        self.button_group.addWidget(self.button_fold)
-
-        self.button_parole = QPushButton(self.horizontalLayoutWidget_5)
-        self.button_parole.setObjectName(u"button_parole")
-
-        self.button_group.addWidget(self.button_parole)
+        for button in self.buttons:
+            self.button_group.addWidget(button)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
@@ -127,16 +118,9 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         QMetaObject.connectSlotsByName(MainWindow)
-    # setupUi
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.actionLoad.setText(QCoreApplication.translate("MainWindow", u"Load seed", None))
         self.actionSave.setText(QCoreApplication.translate("MainWindow", u"Save seed", None))
-        self.button_follow.setText(QCoreApplication.translate("MainWindow", u"Follow", None))
-        self.button_bet.setText(QCoreApplication.translate("MainWindow", u"Bet", None))
-        self.button_fold.setText(QCoreApplication.translate("MainWindow", u"Fold", None))
-        self.button_parole.setText(QCoreApplication.translate("MainWindow", u"Faire Parole", None))
         self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"Seed", None))
-    # retranslateUi
-
