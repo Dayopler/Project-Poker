@@ -24,8 +24,7 @@ class Ui_MainWindow(object):
             else:
                 self.players.append(PlayerComponent(name=f'IA-{i}', position_index=i))
 
-        self.buttons: list[ButtonComponent] = [ButtonComponent('Suivre', 'follow', self.players, self.dealer),
-                                               ButtonComponent('Parole', 'nothing', self.players, self.dealer),
+        self.buttons: list[ButtonComponent] = [ButtonComponent('Parole', 'nothing', self.players, self.dealer),
                                                ButtonComponent('Se Coucher', 'giveup', self.players, self.dealer),
                                                ButtonComponent('Miser', 'bet', self.players, self.dealer),
                                                ButtonComponent('Ajouter', 'add', self.players, self.dealer),

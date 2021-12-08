@@ -32,11 +32,9 @@ class ButtonComponent(Component):
         elif self.__action == 'bet':
             self.button.clicked.connect(self.__addOnePiece)
         elif self.__action == 'giveup':
-            self.button.clicked.connect(self.__addOnePiece)
+            self.button.clicked.connect(self.__goToSleep)
         elif self.__action == 'nothing':
-            self.button.clicked.connect(self.__addOnePiece)
-        elif self.__action == 'follow':
-            self.button.clicked.connect(self.__addOnePiece)
+            self.button.clicked.connect(self.__keepWhatching)
 
         group.addWidget(self.button)
 
@@ -50,3 +48,19 @@ class ButtonComponent(Component):
             player.money = -1
             self.__dealer.cash_prize = 1
             print(f'dealer cash {self.__dealer.cash_prize}')
+
+    def __keepWhatching(self):
+        """
+        pass your turn without do something and unveil mid card
+        :return:
+        """
+        pass
+
+    def __goToSleep(self):
+        """
+        leave this round because you have very bad cards
+        :return:
+        """
+        for player in self.__players:
+            if not player.is_ia:
+                player.isgiveup = True

@@ -9,6 +9,7 @@ class Player:
         self.__is_small_blind: bool = is_small_blind
         self.__is_big_blind: bool = is_big_blind
         self.__hand: list[Card] = []
+        self.__isgiveup: bool = False
 
     def __repr__(self):
         return f'represent the player {self.__name} has {self.__money}'
@@ -103,3 +104,19 @@ class Player:
         :return:
         """
         self.__is_big_blind = is_big_blind
+
+    @property
+    def isgiveup(self) -> bool:
+        """
+        give up the round
+        :return bool:
+        """
+        return self.__isgiveup
+
+    @isgiveup.setter
+    def isgiveup(self, isgiveup: bool):
+        """
+        give up the round
+        :return bool:
+        """
+        self.__isgiveup = isgiveup
