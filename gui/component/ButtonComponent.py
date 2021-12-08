@@ -47,7 +47,6 @@ class ButtonComponent(Component):
         for player in self.__players:
             player.money = -1
             self.__dealer.cash_prize = 1
-            print(f'dealer cash {self.__dealer.cash_prize}')
 
     def __keepWhatching(self):
         """
@@ -63,4 +62,6 @@ class ButtonComponent(Component):
         """
         for player in self.__players:
             if not player.is_ia:
-                player.isgiveup = True
+                if not player.isgiveup:
+                    player.isgiveup = True
+                break
