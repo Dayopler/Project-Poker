@@ -13,11 +13,11 @@ class Ui_MainWindow(object):
 
         self.players: list[PlayerComponent] = []
         self.cards_revealed: list[CardComponent] = []
-        self.buttons: list[ButtonComponent] = [ButtonComponent('Follow', 'follow'),
+        self.buttons: list[ButtonComponent] = [ButtonComponent('Suivre', 'follow'),
                                                ButtonComponent('Parole', 'nothing'),
-                                               ButtonComponent('Ajouter', 'add'),
                                                ButtonComponent('Se Coucher', 'giveup'),
-                                               ButtonComponent('Bet', 'bet'),
+                                               ButtonComponent('Miser', 'bet'),
+                                               ButtonComponent('Ajouter', 'add'),
                                                ]
         # set players places
         player_place: int = randint(0, 3)

@@ -1,4 +1,5 @@
 from gui.component.Component import Component
+from gui.component.PlayerComponent import PlayerComponent
 from PyQt5.QtWidgets import *
 
 
@@ -22,5 +23,27 @@ class ButtonComponent(Component):
         self.button = QPushButton(container)
         self.button.setObjectName(self.__title)
         self.button.setText(self.__title)
-        self.button.clicked.connect(lambda: print(f'hello from {self.__action}'))
+
+        if self.__action ==  'add' :
+            self.button.clicked.connect(self.__addOnePiece)
+        elif self.__action ==  'bet' :
+            self.button.clicked.connect(self.__addOnePiece)
+        elif self.__action ==  'giveup' :
+            self.button.clicked.connect(self.__addOnePiece)
+        elif self.__action ==  'nothing' :
+            self.button.clicked.connect(self.__addOnePiece)
+        elif self.__action ==  'follow' :
+            self.button.clicked.connect(self.__addOnePiece)
+
         group.addWidget(self.button)
+
+
+    def __addOnePiece(self, player: PlayerComponent):
+        '''
+        add One € to Player's bet
+        :param player:
+        :return:
+        '''
+        print(player.money)
+        player.money = -1
+        print(player.money)
