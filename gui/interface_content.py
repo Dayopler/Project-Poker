@@ -10,10 +10,17 @@ class Ui_MainWindow(object):
     def __init__(self):
         #declare layout and container
         self.horizontalLayoutWidget_5 = QWidget(self.centralwidget)
+        self.horizontalLayoutWidget_6 = QWidget(self.centralwidget)
+        self.horizontalLayoutWidget_7 = QWidget(self.centralwidget)
+        self.horizontalLayoutWidget_8 = QWidget(self.centralwidget)
 
         self.players: list[PlayerComponent] = []
         self.cards_revealed: list[PlayerComponent] = []
-        self.buttons: list[ButtonComponent] = [ButtonComponent('bet', 'bet', self.horizontalLayoutWidget_5), ButtonComponent('follow', 'follow', self.horizontalLayoutWidget_5)]
+        self.buttons: list[ButtonComponent] = [ButtonComponent('Suivre', 'Suivre', self.horizontalLayoutWidget_5),
+                                               ButtonComponent('Parole', 'Parole', self.horizontalLayoutWidget_6),
+                                               ButtonComponent('Miser 1€', 'Miser 1€', self.horizontalLayoutWidget_7),
+                                               ButtonComponent('Se Coucher', 'Se Coucher', self.horizontalLayoutWidget_8)
+                                               ]
         player_place: int = randint(0, 3)
 
         for i in range(0, 4):
