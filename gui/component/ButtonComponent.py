@@ -47,7 +47,7 @@ class ButtonComponent(Component):
         for player in self.__players:
             player.money = -1
             self.__dealer.cash_prize = 1
-            player.set_text()
+            player.set_money()
 
     def __keepWhatching(self):
         """

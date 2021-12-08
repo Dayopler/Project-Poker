@@ -84,7 +84,7 @@ class PlayerComponent(Player, Component):
         for card in self.__cards_component:
             self.card_infos.addWidget(card.get(MainWindow, self.horizontalLayoutWidget))
 
-    def set_text(self):
+    def set_money(self):
         """
         set new text on player
         :return:

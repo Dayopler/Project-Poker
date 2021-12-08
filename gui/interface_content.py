@@ -4,6 +4,7 @@ from gui.component.PlayerComponent import PlayerComponent
 from gui.component.CardComponent import CardComponent
 from gui.component.ButtonComponent import ButtonComponent
 from PokerGame.Players.Dealer import Dealer
+from PokerGame.DeckManager.Card import *
 from random import randint
 
 
@@ -23,6 +24,12 @@ class Ui_MainWindow(object):
                 self.players.append(PlayerComponent(name=f'PlayerName', is_ia=False, position_index=i))
             else:
                 self.players.append(PlayerComponent(name=f'IA-{i}', position_index=i))
+
+        # give card to the player
+        for i in range(0, 2):
+            for player in self.players:
+                player.cards = self.dealer.give_card()
+                print(player.cards)
 
         self.buttons: list[ButtonComponent] = [ButtonComponent('Parole', 'nothing', self.players, self.dealer),
                                                ButtonComponent('Se Coucher', 'giveup', self.players, self.dealer),
