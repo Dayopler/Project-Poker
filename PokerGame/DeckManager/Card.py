@@ -39,7 +39,7 @@ class Card:
     @property
     def value_name(self) -> str:
         """
-        get card string value str format
+        get card value str format
         :return str:
         """
         return self.__value.name
@@ -47,7 +47,7 @@ class Card:
     @property
     def symbol_name(self) -> str:
         """
-        get card string symbol str format
+        get card symbol str format
         :return str:
         """
         return self.__symbol.name
@@ -55,7 +55,7 @@ class Card:
     @property
     def color_name(self) -> str:
         """
-        get card string symbol str format
+        get card color str format
         :return str:
         """
         return self.__color.name
