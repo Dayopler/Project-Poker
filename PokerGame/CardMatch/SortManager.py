@@ -39,11 +39,9 @@ class SorterManager:
         else:
             return hands_weight.index(max_weight)
 
-
-
     def __get_hands_weight(self) -> list[int]:
         """
-        compare the given player's hand
+        return the weight of player hand, the higher weight represent the winner
         :return list[int]:
         """
         # stock the weight of compared hand
