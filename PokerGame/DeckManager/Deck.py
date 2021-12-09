@@ -55,6 +55,7 @@ class Deck:
         # making this is to know how many card game we need in the deck
         total_card_game_in_deck = int(self.__size / self.MINIMUM_SIZE)
 
+        # remove 4 for not counting built-in method
         total_symbol = len(dir(CardSymbols))-4
         total_value = len(dir(CardValues))-4
 
