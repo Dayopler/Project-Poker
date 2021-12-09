@@ -1,6 +1,6 @@
 from PokerGame.gui.component.CardComponent import CardComponent
 from PokerGame.gui.component.Component import Component
-from PokerGame import Player
+from PokerGame.Players.Player import Player
 from PokerGame.DeckManager.Card import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
