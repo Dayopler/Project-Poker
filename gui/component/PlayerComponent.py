@@ -1,6 +1,7 @@
 from gui.component.CardComponent import CardComponent
 from gui.component.Component import Component
 from PokerGame import Player
+from PokerGame.DeckManager.Card import *
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 
@@ -25,7 +26,7 @@ class PlayerComponent(Player, Component):
             self.__position_index = self.POSITION_4
 
         # set the card component for the player
-        self.__cards_component = [CardComponent(), CardComponent()]
+        self.__cards_component: list[CardComponent] = []
 
     def __repr__(self):
         return f'player component {self.name}'
@@ -90,3 +91,23 @@ class PlayerComponent(Player, Component):
         :return:
         """
         self.player_money.setText(QCoreApplication.translate("MainWindow", str(self.money), None))
+
+    def set_card_text(self):
+        """
+        TODO
+            - set the card in the
+        set the card text
+        :return:
+        """
+        for card in self.cards:
+            pass
+
+    def set_card_component(self):
+        """
+        create card component
+        :return:
+        """
+        for card in self.cards:
+            self.__cards_component.append(CardComponent(value=CardValues(card.value),
+                                                        symbol=CardSymbols(card.symbol),
+                                                        color=CardColors(card.color)))

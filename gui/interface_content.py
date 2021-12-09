@@ -26,10 +26,13 @@ class Ui_MainWindow(object):
                 self.players.append(PlayerComponent(name=f'IA-{i}', position_index=i))
 
         # give card to the player
-        for i in range(0, 2):
-            for player in self.players:
-                player.cards = self.dealer.give_card()
-                print(player.cards)
+        for i in range(0, 3):
+            if i < 2:
+                for player in self.players:
+                    player.cards = self.dealer.give_card()
+            else:
+                for player in self.players:
+                    player.set_card_component()
 
         self.buttons: list[ButtonComponent] = [ButtonComponent('Parole', 'nothing', self.players, self.dealer),
                                                ButtonComponent('Se Coucher', 'giveup', self.players, self.dealer),
