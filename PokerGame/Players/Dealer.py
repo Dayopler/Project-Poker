@@ -19,7 +19,7 @@ class Dealer:
 
     def reveal_cards(self, amount=3) -> list[Card]:
         """
-        reveal given amount of card
+        return list of card the dealer have to reveal
 
         :param amount:
         :return list[Card]:

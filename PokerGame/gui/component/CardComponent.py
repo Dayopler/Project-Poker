@@ -1,5 +1,5 @@
 from PokerGame.DeckManager.Card import *
-from gui.component.Component import Component
+from PokerGame.gui.component.Component import Component
 from PyQt5.QtWidgets import *
 
 

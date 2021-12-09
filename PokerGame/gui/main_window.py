@@ -1,7 +1,7 @@
 import sys
 
 from PyQt5.QtWidgets import (QApplication, QMainWindow)
-from gui.interface_content import Ui_MainWindow
+from PokerGame.gui.interface_content import Ui_MainWindow
 
 
 class Window(QMainWindow, Ui_MainWindow):

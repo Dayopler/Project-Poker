@@ -1,5 +1,5 @@
-from gui.component.Component import Component
-from gui.component.PlayerComponent import PlayerComponent
+from PokerGame.gui.component.Component import Component
+from PokerGame.gui.component.PlayerComponent import PlayerComponent
 from PokerGame.Players.Dealer import Dealer
 from PyQt5.QtWidgets import *
 

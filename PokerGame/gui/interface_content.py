@@ -1,10 +1,9 @@
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
-from gui.component.PlayerComponent import PlayerComponent
-from gui.component.CardComponent import CardComponent
-from gui.component.ButtonComponent import ButtonComponent
+from PokerGame.gui.component.PlayerComponent import PlayerComponent
+from PokerGame.gui.component.CardComponent import CardComponent
+from PokerGame.gui.component.ButtonComponent import ButtonComponent
 from PokerGame.Players.Dealer import Dealer
-from PokerGame.DeckManager.Card import *
 from random import randint
 
 
