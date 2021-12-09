@@ -4,7 +4,7 @@ import sys
 
 
 class Seed:
-    storage_file: str = 'seed/seed.json'
+    STORAGE_FILE: str = 'seed/seed.json'
 
     def __init__(self, seed_name: str = None):
         self.seed: int = self.__generate() if seed_name is None else self.__load(seed_name)
@@ -18,7 +18,7 @@ class Seed:
         :return bool:
         """
         try:
-            with open(self.storage_file, 'r') as f:
+            with open(self.STORAGE_FILE, 'r') as f:
                 file_content: list = json.load(f)
                 f.close()
 
@@ -50,7 +50,7 @@ class Seed:
         seed_name = seed_name.replace(' ', '_')
         try:
             # get values from the file
-            with open(self.storage_file, 'r') as f:
+            with open(self.STORAGE_FILE, 'r') as f:
                 file_content: dict = json.load(f)
                 f.close()
 
@@ -59,7 +59,7 @@ class Seed:
             file_content[seed_name] = self.seed
 
             # override current file with new values
-            with open(self.storage_file, 'w') as f:
+            with open(self.STORAGE_FILE, 'w') as f:
                 json.dump(file_content, f)
                 f.close()
 
