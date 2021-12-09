@@ -1,7 +1,7 @@
 import unittest
 
-from CardMatch.Sorter import Sorter
-from Cards.Card import *
+from PokerGame.CardMatch.Sorter import Sorter
+from PokerGame.DeckManager.Card import *
 
 
 class SorterTest(unittest.TestCase):

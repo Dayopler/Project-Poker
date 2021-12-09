@@ -1,4 +1,4 @@
-from DeckManager.Deck import Deck
+from PokerGame.DeckManager.Deck import Deck, Card
 
 
 class Dealer:
@@ -10,19 +10,19 @@ class Dealer:
     def __repr__(self):
         return 'represent the dealer'
 
-    def give_card(self):
+    def give_card(self) -> Card:
         """
         return the next card contain in the deck
-        :return:
+        :return Card:
         """
         return self.__deck.__next__()
 
-    def reveal_cards(self, amount=3) -> list:
+    def reveal_cards(self, amount=3) -> list[Card]:
         """
-        reveal given amount of card
+        return list of card the dealer have to reveal
 
         :param amount:
-        :return list:
+        :return list[Card]:
         """
         return [self.__deck.__next__() for i in range(0, amount)]
 

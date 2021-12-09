@@ -1,6 +1,6 @@
 import unittest
-from Players.Player import Player
-from Cards.Card import *
+from PokerGame.Players.Player import Player
+from PokerGame.DeckManager.Card import *
 
 
 class PlayerTest(unittest.TestCase):
@@ -81,6 +81,25 @@ class PlayerTest(unittest.TestCase):
         cards = player.get_and_reset_hand()
 
         self.assertEqual([], player.cards)
+
+    def test_player_is_small_blind_false(self):
+        player = Player(name='john')
+
+        self.assertFalse(player.is_small_blind)
+
+    def test_player_is_small_blind_true(self):
+        player = Player(name='john')
+        player.is_small_blind = True
+        self.assertTrue(player.is_small_blind)
+
+    def test_player_is_big_blind_false(self):
+        player = Player(name='john')
+        self.assertFalse(player.is_big_blind)
+
+    def test_player_is_big_blind_true(self):
+        player = Player(name='john')
+        player.is_big_blind = True
+        self.assertTrue(player.is_big_blind)
 
 
 if __name__ == '__main__':

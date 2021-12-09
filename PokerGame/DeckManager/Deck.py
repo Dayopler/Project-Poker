@@ -1,15 +1,15 @@
 import random
 
-from Cards.Card import Card
-from Cards.CardValues import CardValues
-from Cards.CardColors import CardColors
-from Cards.CardSymbols import CardSymbols
+from PokerGame.DeckManager.Card import Card
+from PokerGame.DeckManager.CardValues import CardValues
+from PokerGame.DeckManager.CardColors import CardColors
+from PokerGame.DeckManager.CardSymbols import CardSymbols
 
 
 class Deck:
 
     # remove 4 to keep only enum values and remove built-in class methods provided
-    minimum_size = (len(dir(CardValues))-4) * (len(dir(CardSymbols))-4)
+    MINIMUM_SIZE = (len(dir(CardValues)) - 4) * (len(dir(CardSymbols)) - 4)
 
     def __init__(self, deck_size: int = 52):
         """
@@ -17,9 +17,10 @@ class Deck:
         :param deck_size:
         """
         # check if deck __size's correct
-        if deck_size % self.minimum_size != 0:
-            raise ValueError(f'deck must contain at least {self.minimum_size} cards')
+        if deck_size % self.MINIMUM_SIZE != 0:
+            raise ValueError(f'deck must contain at least {self.MINIMUM_SIZE} cards')
 
+        # total of card in deck
         self.__size: int = deck_size
 
         # deck content
@@ -52,8 +53,9 @@ class Deck:
 
         # one card game __size is represented by minimum __size attribute
         # making this is to know how many card game we need in the deck
-        total_card_game_in_deck = int(self.__size / self.minimum_size)
+        total_card_game_in_deck = int(self.__size / self.MINIMUM_SIZE)
 
+        # remove 4 for not counting built-in method
         total_symbol = len(dir(CardSymbols))-4
         total_value = len(dir(CardValues))-4
 
@@ -67,4 +69,8 @@ class Deck:
 
     @property
     def size(self) -> int:
+        """
+        get the size of the deck
+        :return:
+        """
         return self.__size
