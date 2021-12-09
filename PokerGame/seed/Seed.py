@@ -29,7 +29,7 @@ class Seed:
                     random.random()
                     return seed
         except FileNotFoundError:
-            print('File Not found')
+            raise FileNotFoundError('storage seed file not found check the path')
 
     def __generate(self) -> int:
         """
@@ -45,24 +45,29 @@ class Seed:
     def save(self, seed_name: str) -> bool:
         """
         save the seed in the json file specified
+        it'll return false if the name already exist
+        and true if the seed is add to the file
         :return bool:
         """
-        seed_name = seed_name.replace(' ', '_')
         try:
+            # normalize the seed name
+            seed_name = seed_name.replace(' ', '_')
+
             # get values from the file
             with open(self.STORAGE_FILE, 'r') as f:
                 file_content: dict = json.load(f)
                 f.close()
 
+            # check if name exist in the file
             if seed_name in file_content.keys():
                 return False
-            file_content[seed_name] = self.seed
 
             # override current file with new values
             with open(self.STORAGE_FILE, 'w') as f:
+                file_content[seed_name] = self.seed
                 json.dump(file_content, f)
                 f.close()
 
             return True
         except FileNotFoundError:
-            print('File not found')
+            raise FileNotFoundError('storage seed file not found check the path')
